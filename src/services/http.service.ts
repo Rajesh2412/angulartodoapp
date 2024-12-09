@@ -9,9 +9,8 @@ import { TodoList } from "../interfaces/todolist";
 
 export class HttpService{
 
-    // unknown-robbin-rajesh2412-7836da9f.koyeb.app/
-
     apiURL  = 'https://blonde-trisha-rajesh2412-bf148a4a.koyeb.app'
+    // apiURL = "localhost:8080"
 
     constructor(private http: HttpClient){}
 
@@ -28,7 +27,8 @@ export class HttpService{
         return this.http.delete(`${this.apiURL}/delete/${id}`)
     }
 
-    updateCall(){
+    updateCall(id:number,todoItem:any):Observable<any>{
+        return this.http.put(`${this.apiURL}/updateTodo/${id}`,todoItem)
 
     }
 }
